@@ -1,0 +1,96 @@
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+import java.sql.*;
+
+public class CardApplication extends Application {
+
+    TextField nameField, cardField, amountField;
+
+    // Database connection
+    Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/carddb",
+            "root",
+            "password"
+        );
+    }
+
+    // Save card details
+    void saveData() {
+        String sql = "INSERT INTO cards(name, card_no, amount) VALUES (?, ?, ?)";
+
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, nameField.getText());
+            ps.setString(2, cardField.getText());
+            ps.setDouble(3, Double.parseDouble(amountField.getText()));
+
+            ps.executeUpdate();
+
+            showMessage("Card details saved successfully!");
+
+        } catch (Exception e) {
+            showMessage("Error: " + e.getMessage());
+        }
+    }
+
+    // Display message
+    void showMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    @Override
+    public void start(Stage stage) {
+
+        Label title = new Label("CARD APPLICATION");
+
+        Label nameLabel = new Label("Card Holder Name:");
+        Label cardLabel = new Label("Card Number:");
+        Label amountLabel = new Label("Amount:");
+
+        nameField = new TextField();
+        cardField = new TextField();
+        amountField = new TextField();
+
+        Button saveButton = new Button("Save");
+
+        saveButton.setOnAction(e -> saveData());
+
+        GridPane grid = new GridPane();
+
+        grid.setPadding(new Insets(20));
+        grid.setHgap(10);
+        grid.setVgap(10);
+
+        grid.add(title, 0, 0, 2, 1);
+
+        grid.add(nameLabel, 0, 1);
+        grid.add(nameField, 1, 1);
+
+        grid.add(cardLabel, 0, 2);
+        grid.add(cardField, 1, 2);
+
+        grid.add(amountLabel, 0, 3);
+        grid.add(amountField, 1, 3);
+
+        grid.add(saveButton, 1, 4);
+
+        Scene scene = new Scene(grid, 400, 300);
+
+        stage.setTitle("Card Application");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
