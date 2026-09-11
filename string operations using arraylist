@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+
+class StringArrayList {
+    public static void main(String[] args) {
+
+        ArrayList<String> list = new ArrayList<>();
+
+        // Add strings
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Orange");
+        list.add("Mango");
+
+        // Display
+        System.out.println("Strings: " + list);
+
+        // Add at specific position
+        list.add(1, "Grapes");
+        System.out.println("After adding: " + list);
+
+        // Remove a string
+        list.remove("Banana");
+        System.out.println("After removing: " + list);
+
+        // Get a string
+        System.out.println("First String: " + list.get(0));
+
+        // Update a string
+        list.set(0, "Pineapple");
+        System.out.println("After updating: " + list);
+
+        // Search a string
+        System.out.println("Contains Mango: " + list.contains("Mango"));
+
+        // Display size
+        System.out.println("Size: " + list.size());
+
+        // Display using loop
+        System.out.println("Final Strings:");
+        for (String s : list) {
+            System.out.println(s);
+        }
+    }
+}
