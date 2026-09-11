@@ -1,0 +1,185 @@
+class Employee {
+    int id;
+    String name;
+    double salary;
+
+    void display() {
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee();
+
+        e.id = 101;
+        e.name = "Ravi";
+        e.salary = 25000;
+
+        e.display();
+    }
+}
+class Employee {
+    int id;
+    String name;
+    double salary;
+
+    Employee(int i, String n, double s) {
+        id = i;
+        name = n;
+        salary = s;
+    }
+
+    void display() {
+        System.out.println(id + " " + name + " " + salary);
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee(101, "Kumar", 30000);
+        e.display();
+    }
+}
+class Employee {
+    int id;
+    String name;
+
+    Employee(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    void display() {
+        System.out.println(id + " " + name);
+    }
+
+    public static void main(String[] args) {
+        Employee e1 = new Employee(101, "Arun");
+        Employee e2 = new Employee(102, "Bala");
+        Employee e3 = new Employee(103, "Ravi");
+
+        e1.display();
+        e2.display();
+        e3.display();
+    }
+}
+class Employee {
+    double basic, hra, da, gross;
+
+    Employee(double basic) {
+        this.basic = basic;
+    }
+
+    void calculate() {
+        hra = basic * 0.20;
+        da = basic * 0.10;
+        gross = basic + hra + da;
+    }
+
+    void display() {
+        System.out.println("Basic Salary: " + basic);
+        System.out.println("HRA: " + hra);
+        System.out.println("DA: " + da);
+        System.out.println("Gross Salary: " + gross);
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee(20000);
+
+        e.calculate();
+        e.display();
+    }
+}
+class Employee {
+    String name;
+    double salary;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    void bonus() {
+        double b = salary * 0.10;
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+        System.out.println("Bonus: " + b);
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee("Ramesh", 30000);
+        e.bonus();
+    }
+}
+class Employee {
+    String name;
+    double salary;
+
+    Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+
+    public static void main(String[] args) {
+        Employee e1 = new Employee("Arun", 25000);
+        Employee e2 = new Employee("Bala", 40000);
+        Employee e3 = new Employee("Ravi", 30000);
+
+        Employee high = e1;
+
+        if (e2.salary > high.salary)
+            high = e2;
+
+        if (e3.salary > high.salary)
+            high = e3;
+
+        System.out.println("Highest Salary Employee: " + high.name);
+        System.out.println("Salary: " + high.salary);
+    }
+}
+class Employee {
+    int id;
+    String name;
+    String department;
+    double salary;
+
+    Employee(int id, String name, String department, double salary) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+    }
+
+    void display() {
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Department: " + department);
+        System.out.println("Salary: " + salary);
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee(101, "Vijay", "IT", 35000);
+        e.display();
+    }
+}
+class Employee {
+    String name;
+    int age;
+    double salary;
+
+    Employee(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Salary: " + salary);
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee("Suresh", 25, 28000);
+        e.display();
+    }
+}
