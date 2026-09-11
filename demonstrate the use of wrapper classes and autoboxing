@@ -1,0 +1,72 @@
+class WrapperDemo {
+    public static void main(String[] args) {
+
+        // Primitive data types
+        int a = 10;
+        double b = 20.5;
+        char c = 'A';
+        boolean d = true;
+
+        // Wrapper classes
+        Integer obj1 = Integer.valueOf(a);
+        Double obj2 = Double.valueOf(b);
+        Character obj3 = Character.valueOf(c);
+        Boolean obj4 = Boolean.valueOf(d);
+
+        System.out.println("Wrapper Classes:");
+        System.out.println("Integer: " + obj1);
+        System.out.println("Double: " + obj2);
+        System.out.println("Character: " + obj3);
+        System.out.println("Boolean: " + obj4);
+
+        // Autoboxing
+        Integer x = a;
+        Double y = b;
+        Character z = c;
+
+        System.out.println("\nAutoboxing:");
+        System.out.println("Integer: " + x);
+        System.out.println("Double: " + y);
+        System.out.println("Character: " + z);
+
+        // Unboxing
+        int p = x;
+        double q = y;
+        char r = z;
+
+        System.out.println("\nUnboxing:");
+        System.out.println("int: " + p);
+        System.out.println("double: " + q);
+        System.out.println("char: " + r);
+    }
+}
+
+Output
+Wrapper Classes:
+Integer: 10
+Double: 20.5
+Character: A
+Boolean: true
+
+Autoboxing:
+Integer: 10
+Double: 20.5
+Character: A
+
+Unboxing:
+int: 10
+double: 20.5
+char: A
+
+Key points
+Wrapper classes convert primitive data types into objects.
+int → Integer
+double → Double
+char → Character
+boolean → Boolean
+Autoboxing: Automatically converts a primitive into its wrapper object.
+int a = 10;
+Integer x = a;
+Unboxing: Automatically converts a wrapper object back into a primitive.
+Integer x = 10;
+int a = x;
